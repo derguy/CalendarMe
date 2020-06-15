@@ -21,7 +21,7 @@
 #define E_PAPER_RST_PIN D0
 #define E_PAPER_BUSY_PIN D2
 
-// 1.54" BWR - for others choose other Constructor
+// 1.54" BWR - for other displays choose other Constructor
 GxEPD2_3C<GxEPD2_154c, GxEPD2_154c::HEIGHT> display(GxEPD2_154c(E_PAPER_CS_PIN, E_PAPER_DC_PIN, E_PAPER_RST_PIN, E_PAPER_BUSY_PIN));
 
 const char ssid[] = WIFI_SSID;
@@ -30,7 +30,7 @@ const char password[] = WIFI_PASSWD;
 const char* host = "script.google.com";
 const int httpsPort = 443;
 const char* GScriptId = GSCRIPT_ID;
-String gScriptUrl = String("/macros/s/") + GScriptId + "/exec?cal";
+String gScriptUrl = String("/macros/s/") + GScriptId + "/exec?clientId=" + DEVICE_ID;
 HTTPSRedirect* client = nullptr;
 
 void connectWifi() {
@@ -90,7 +90,7 @@ void printEPaper(StaticJsonDocument<500> json)
   {
     display.fillScreen(GxEPD_WHITE);
     
-    // Print out today
+    // print out today
     display.setCursor(0, 15);
     display.setFont(&FreeSansBold12pt7b);
     display.print(json["header1"].as<char*>());
@@ -98,7 +98,7 @@ void printEPaper(StaticJsonDocument<500> json)
     display.setFont(&FreeSansBold9pt7b);
     display.print(json["body1"].as<char*>());
 
-    // Print out tomorrow
+    // print out tomorrow
     display.setFont(&FreeSansBold12pt7b);
     display.setCursor(0, display.getCursorY() + 5);
     display.print(json["header2"].as<char*>());
@@ -130,9 +130,14 @@ void setup() {
         return;
     }
 
-    // Print data to epaper
-    display.init(115200);
-    printEPaper(json);
+    // print data to epaper
+    if (json["isNewData"]) {
+        Serial.println("Updating Epaper");
+        display.init(115200);
+        printEPaper(json);
+    } else {
+        Serial.println("Skip updating");
+    }
 
     // cleanup
     delete client;
@@ -140,9 +145,9 @@ void setup() {
 }
 
 void loop() {
-    // turn arduino to sleep with TP tpl5110
-    digitalWrite(TPL5110_DONE_PIN, HIGH); // turn aduino off
+    // put arduino to sleep with TP tpl5110
+    digitalWrite(TPL5110_DONE_PIN, HIGH);
     delay(2000);
-    digitalWrite(TPL5110_DONE_PIN, LOW); // not really necessary
+    digitalWrite(TPL5110_DONE_PIN, LOW);
     delay(1000);
 }

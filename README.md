@@ -16,6 +16,21 @@ I bought the version with red color, but for this project there is no need for t
 ### NodeMCU Lua Amica ESP8266
 <https://www.az-delivery.de/en/products/nodemcu>
 
+## Configure
+
+### Google-Calendar
+1. Create unter http://script.google.com/ a new app with the code from google-calendar-script.gs.
+2. Replace the calendar-id inside the script
+3. Deploy app with Publish > Deploy as web app (Access: Anyone, even anonymous)
+4. If you update always choose under Project version "New"
+5. Copy the Script-Id inside the Web app URL -> you will need this in the credentials.h in the arduino-code
+
+### Arduino-Code
+1. Fill in the values in credentials.h
+2. Verify connection-settings at main.cpp-> // E-Paper + NodeMCU
+3. Use the correct constructor for your display (e.g. if it is not a colored display use another than GxEPD2_3C)
+4. Upload to Arduino
+
 ## Connect
 I had some problems to get the right GPIO-Setup for the TPL5110 and e-Paper Module. Especially the DONE-Pin on the TPL only works on some GPIOs and the RST-Pin on the e-paper does not fit to every NodeMCU-pin. I think this is because the NodeMCU has a HIGH-status on some pins while powering up. 
 

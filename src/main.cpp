@@ -15,7 +15,7 @@
 // Adafruit TPL5100. Put Diode from GND to DONE
 #define TPL5110_DONE_PIN D1
 
-// // E-Paper + NodeMCU
+// E-Paper + NodeMCU
 // CLK -> GPIO14 (D5), DIN -> GPIO13 (D7), GND -> GND, 3.3V -> 3.3V
 #define E_PAPER_CS_PIN D8
 #define E_PAPER_DC_PIN D4

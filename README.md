@@ -22,4 +22,4 @@ I had some problems to get the right GPIO-Setup for the TPL5110 and e-Paper Modu
 ![friting-diagramm](./CalendarMe.png)
 
 ## 3D-printed case
-TBD
+<https://www.thingiverse.com/thing:4483551>

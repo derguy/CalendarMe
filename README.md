@@ -16,6 +16,12 @@ I bought the version with red color, but for this project there is no need for t
 ### NodeMCU Lua Amica ESP8266
 <https://www.az-delivery.de/en/products/nodemcu>
 
+### TP4056 USB Lithium Li-Ion Battery Charger Module
+Lipo charger. The one I used in fritzing has separated pins for battery and output - mine has no separated pins. 
+
+### 3,7 V 1000 mAh Lipo
+Lipo for powering
+
 ## Configure
 
 ### Google-Calendar

@@ -1,6 +1,8 @@
 # CalendarMe (WIP)
 This is just a project that I created for my son. At this moment (2020) he hasn't got his own mobilephone and I want to give him the oppertunity to see upcoming appointments. 
 
+At the moment the Calendar displays todays (german: Heute) and tomorrows (german: Morgen) appointments. 
+
 If you like the project feel free to...
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WYPGSSKM5U37L&source=url)
 

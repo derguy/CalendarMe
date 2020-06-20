@@ -1,4 +1,4 @@
-# CalendarMe
+# CalendarMe (WIP)
 This is just a project that I created for my son. At this moment (2020) he hasn't got his own mobilephone and I want to give him the oppertunity to see upcoming appointments. 
 
 If you like the project feel free to...
